@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
+import MapKit
 
 
 class loginViewController: UIViewController, FBSDKLoginButtonDelegate {
@@ -149,15 +150,11 @@ class loginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             
             
-            let badCredentials: String? = parsedData?.valueForKey("error")
-            if badCredentials != nil {
-                // handle error
-                return
-            }
+            
 
-                let mysession = parsedData!.valueForKey("session") as! [String: AnyObject]
-                let sessionID = mysession["id"]
-                print("Will login now with sessionsID: \(sessionID)")
+                //let mysession = parsedData!.valueForKey("session") as! [String: AnyObject]
+                //let sessionID = mysession["id"]
+                //print("Will login now with sessionsID: \(sessionID)")
                 self.completeLogin()
            
             
@@ -274,7 +271,7 @@ let parsedData = try? NSJSONSerialization.JSONObjectWithData(newData, options: N
             //self.debugLabel.text = ""
             //let controller = self.storyboard!.instantiateViewControllerWithIdentifier("mapView") as! UITabBarController
             
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("mapView")
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("testStoryBoards")
             self.presentViewController(controller, animated: true, completion: nil)
         })
     }

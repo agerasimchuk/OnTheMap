@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -228,7 +229,7 @@
         <!--testStoryBoards-->
         <scene sceneID="szJ-cq-Y8Z">
             <objects>
-                <viewController storyboardIdentifier="testStoryBoards" title="testStoryBoards" id="MVW-iB-nsf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="testStoryBoards" title="testStoryBoards" id="MVW-iB-nsf" customClass="testStoryBoards" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Bm-Yt-DjR"/>
                         <viewControllerLayoutGuide type="bottom" id="FMo-Jm-X7B"/>
@@ -242,23 +243,56 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="36" y="218" width="316" height="21"/>
-                                </variation>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ydS-n8-1Bx">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ydS-n8-1Bx" firstAttribute="leading" secondItem="tDc-MO-NVV" secondAttribute="leading" id="AWr-Cu-yme"/>
+                            <constraint firstItem="I1b-V6-v8d" firstAttribute="top" secondItem="ydS-n8-1Bx" secondAttribute="bottom" constant="20" id="K2A-Oc-eqn"/>
+                            <constraint firstItem="ydS-n8-1Bx" firstAttribute="top" secondItem="tDc-MO-NVV" secondAttribute="top" id="NWI-rg-uys"/>
+                            <constraint firstItem="FMo-Jm-X7B" firstAttribute="top" secondItem="I1b-V6-v8d" secondAttribute="bottom" constant="113" id="Nup-HS-fBs"/>
+                            <constraint firstAttribute="trailing" secondItem="ydS-n8-1Bx" secondAttribute="trailing" id="dp5-Wc-gkZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I1b-V6-v8d" secondAttribute="trailing" constant="36" id="hel-tp-GW8"/>
+                            <constraint firstItem="I1b-V6-v8d" firstAttribute="leading" secondItem="tDc-MO-NVV" secondAttribute="leadingMargin" constant="8" id="w25-pH-JCI"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="I1b-V6-v8d"/>
+                                <exclude reference="ydS-n8-1Bx"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Nup-HS-fBs"/>
+                                <exclude reference="K2A-Oc-eqn"/>
+                                <exclude reference="hel-tp-GW8"/>
+                                <exclude reference="w25-pH-JCI"/>
+                                <exclude reference="AWr-Cu-yme"/>
+                                <exclude reference="NWI-rg-uys"/>
+                                <exclude reference="dp5-Wc-gkZ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="I1b-V6-v8d"/>
+                                <include reference="ydS-n8-1Bx"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Nup-HS-fBs"/>
+                                <include reference="K2A-Oc-eqn"/>
+                                <include reference="hel-tp-GW8"/>
+                                <include reference="w25-pH-JCI"/>
+                                <include reference="AWr-Cu-yme"/>
+                                <include reference="NWI-rg-uys"/>
+                                <include reference="dp5-Wc-gkZ"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="ydS-n8-1Bx" id="oVb-pI-P6O"/>
+                        <outlet property="myMap" destination="ydS-n8-1Bx" id="mLM-hw-593"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lQ-rK-pRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
